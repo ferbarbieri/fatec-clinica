@@ -38,9 +38,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(22, 27);
+            this.button1.Location = new System.Drawing.Point(23, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 23);
+            this.button1.Size = new System.Drawing.Size(123, 45);
             this.button1.TabIndex = 0;
             this.button1.Text = "Medicos";
             this.button1.UseVisualStyleBackColor = true;
@@ -48,9 +48,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(22, 68);
+            this.button2.Location = new System.Drawing.Point(23, 63);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 23);
+            this.button2.Size = new System.Drawing.Size(123, 41);
             this.button2.TabIndex = 1;
             this.button2.Text = "Pacientes";
             this.button2.UseVisualStyleBackColor = true;
@@ -58,9 +58,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(22, 109);
+            this.button3.Location = new System.Drawing.Point(23, 110);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 23);
+            this.button3.Size = new System.Drawing.Size(123, 41);
             this.button3.TabIndex = 2;
             this.button3.Text = "Agendar Consultas";
             this.button3.UseVisualStyleBackColor = true;
