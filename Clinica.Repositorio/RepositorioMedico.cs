@@ -9,25 +9,10 @@ namespace Clinica.Repositorio
 {
     public class RepositorioMedico
     {
-        private List<Medico> medicos;
-        private int proximoId;
-
-        public RepositorioMedico()
-        {
-            medicos = new List<Medico>();
-            proximoId = 1;
-
-            // Por questão de teste, vou inicializar com alguns médicos:
-            medicos.Add(new Medico { Id = proximoId++, CPF = "123456789-1", CRM = 12345, Nome = "Magali", Especialidade = TipoEspecialidade.Cardiologista });
-            medicos.Add(new Medico { Id = proximoId++, CPF = "321321321-2", CRM = 32325, Nome = "Monica", Especialidade = TipoEspecialidade.ClinicoGeral });
-            medicos.Add(new Medico { Id = proximoId++, CPF = "475658765-3", CRM = 58847, Nome = "Cebolinha", Especialidade = TipoEspecialidade.Dermatologista});
-            medicos.Add(new Medico { Id = proximoId++, CPF = "878897888-4", CRM = 88655, Nome = "Cascão", Especialidade = TipoEspecialidade.Ortopedista });
-            medicos.Add(new Medico { Id = proximoId++, CPF = "995544111-5", CRM = 33557, Nome = "Franjinha", Especialidade = TipoEspecialidade.Pediatra });
-        }
         
         public Medico ObterMedico(int id)
         {
-            return medicos.First(c => c.Id == id);
+            return DbMock.Medicos.First(c => c.Id == id);
         }
 
         public List<Medico> ObterMedicos(string nome = null)
@@ -35,17 +20,17 @@ namespace Clinica.Repositorio
 
             if (string.IsNullOrEmpty(nome))
             {
-                return medicos;
+                return DbMock.Medicos;
             }
 
-            return medicos
+            return DbMock.Medicos
                 .Where(c => c.Nome.Contains(nome))
                 .ToList();
         }
 
         public List<Medico> ObterMedicosPorEspecialidade(TipoEspecialidade especialidade)
         {
-            return medicos
+            return DbMock.Medicos
                 .Where(c => c.Especialidade == especialidade)
                 .ToList();
         }
@@ -54,20 +39,20 @@ namespace Clinica.Repositorio
         {
             var medico = new Medico()
             {
-                Id = proximoId++,
+                Id = DbMock.ProximoId,
                 CPF = cpf,
                 CRM = crm,
                 Nome = nome,
                 Especialidade = tipo
             };
 
-            medicos.Add(medico);
+            DbMock.Medicos.Add(medico);
             return medico;
         }
 
         public void Atualizar(int id, string nome, int crm, string cpf, TipoEspecialidade tipo)
         {
-            var medico = medicos.First(c=>c.Id == id);
+            var medico = DbMock.Medicos.First(c=>c.Id == id);
             medico.Nome = nome;
             medico.CRM = crm;
             medico.CPF = cpf;
@@ -77,7 +62,7 @@ namespace Clinica.Repositorio
         public void Excluir(int id)
         {
             var medico = ObterMedico(id);
-            medicos.Remove(medico);
+            DbMock.Medicos.Remove(medico);
         }
 
     }

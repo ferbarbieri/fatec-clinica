@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbMock.cs" />
     <Compile Include="RepositorioConsulta.cs" />
     <Compile Include="RepositorioMedico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
